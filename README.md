@@ -1,2 +1,20 @@
-# Protect-SSD-by-RAM-Disk
-安裝RAM Disk不為效能
+[![](https://github.com/TechTutoPPT/Protect-SSD-by-RAM-Disk/blob/main/IMG_8391.PNG)](https://youtu.be/P5JzTHnLj1M)
+
+那為什麼? 我的目的是減少SSD的損耗問題, 由於SSD的NAND flash本身有物理限制, 由早期的SLC能寫入100000次循環, 
+到現在普及的QLC只能寫入1000次循環, 而帶來的好處是容量更大及效能更高, 所以現今想以RAM Disk方式去加強效能, 
+我覺得是沒多大需要的, 但減少SSD損耗卻是一個不錯的想法. 而電腦系統運作過程中就會不停產出很多暫存檔案, 
+假如將這些檔案指向轉存到RAM Disk便能減少SSD的寫入損耗.
+
+本著這想法我找到ImDisk這個RAM Disk工具, 它帶GUI介面, 使用方法簡單, 還附帶磁碟映像檔掛載功能.
+
+以下是簡單制作RAM Disk並將暫存檔指向轉存到這個虛擬磁碟的方法:
+先下載ImDisk:
+```
+https://sourceforge.net/projects/imdisk-toolkit/files/
+```
+下載回來將之解壓並執行內裡的install.bat便能完成安裝.
+安裝完成後於桌面會新增3個圖示, 我們要執行的是記憶體磁碟設定這個應用, 由於我的目的不是為效能, 
+所以大小我設為512MB, 剔選動態地分配記憶體, 其它使用預設值, 再點下方設定TEMP變數...按一下設定全部為:R\Temp再點選確定便完成.
+
+但這用法亦帶來的一個問題, 由於我分配的記憶體有限, 於安裝應用或做解壓動作時, 假如程序使用的暫存位置是統預設的%TEMP%環境變數,
+那就會出現容量不足的情況, 這時需開進入ImDisk的設定TEMP變數頁, 按下還原設定到預設值, 完成安裝或解壓後再將它設回全部為:R\Temp雖然有點不方便, 但我覺得還是值得的.
